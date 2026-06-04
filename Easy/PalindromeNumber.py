@@ -40,3 +40,19 @@ class Solution:
                 return False
         return True
 
+# Not converting int to str
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0 :
+            return False
+        xRemaining = x
+        xReverse = 0
+        while xRemaining != 0 :
+            rem = xRemaining % 10
+            xReverse *= 10
+            xReverse += rem
+            xRemaining //= 10
+        if x == xReverse :
+            return True
+        return False
