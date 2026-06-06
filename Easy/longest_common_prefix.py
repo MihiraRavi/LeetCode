@@ -46,18 +46,30 @@ class Solution:
 
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        MAX_LEN = 200
+        # number of strings
         n = len(strs)
+        # longest common prefix
         lcp = ""
+        # if empty array , nothing to do
         if n == 0 :
             return lcp
+        # lcp cannot be more than the lenght of the first string 
+        # i is index of the first and subsequent words
         for i in range(len(strs[0])) :
+            # i th letter of the first strig 
+            # all strings must have c in i th position for c to be in lcp
             c = strs[0][i]
+            # loop through all strings except first
             for j in range(1, n) :
-                if len(strs[j]) < i :
+                # suppose j th word is smaller than first word
+                # then cannot check further
+                if len(strs[j])) <= i:
                     return lcp
+                # when characters are different, no need to check further 
                 if strs[j][i] != c :
                     return lcp
+            # if control reaches here, it means that all strings have same charater at position i
+            # so, c is part of lcp
             lcp = lcp + c
         return lcp
      
