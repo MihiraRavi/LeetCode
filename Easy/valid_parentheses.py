@@ -72,3 +72,23 @@ class Solution:
                 else:
                     return False
         return len(l) == 0
+
+
+
+# Alternate Method
+
+class Solution:
+    bracketsDict = {"(" : ")", "[" : "]", "{" : "}"}
+    reverseBracketsDict = {v: k for k, v in bracketsDict.items()}
+
+    def isValid(self, s: str) -> bool:
+        l = []
+        for i in range(len(s)) :
+            if s[i] in self.bracketsDict.keys():
+                l.append(s[i])
+            elif s[i] in self.bracketsDict.values() :
+                if len(l) > 0 and l[-1] == self.reverseBracketsDict.get(s[i]) :
+                    l.pop()
+                else:
+                    return False
+        return len(l) == 0
