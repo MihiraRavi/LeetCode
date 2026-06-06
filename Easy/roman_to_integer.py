@@ -56,3 +56,25 @@ class Solution:
             s = s.replace(key,"")
             total += n * value
         return total
+
+
+
+# Alternate Method
+
+class Solution:
+    romanToIndicDict = {"I" : 1, "V" : 5, "X" : 10, "L" : 50, "C" : 100, "D" : 500, "M" : 1000}
+    def romanToInt(self, s: str) -> int:
+        n = len(s)
+        i = 0
+        total = 0
+        while i < n :
+            if i == n - 1 :
+                total += self.romanToIndicDict.get(s[i])
+                i += 1
+            elif self.romanToIndicDict.get(s[i]) >= self.romanToIndicDict.get(s[i + 1]) :
+                total += self.romanToIndicDict.get(s[i])
+                i += 1
+            else:
+                total += self.romanToIndicDict.get(s[i + 1]) - self.romanToIndicDict.get(s[i])
+                i += 2
+        return total
