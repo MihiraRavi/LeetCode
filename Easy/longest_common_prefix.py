@@ -41,3 +41,23 @@ class Solution:
                     return lcp
             lcp = lcp + c
         return lcp
+
+# code avoiding the initial loop
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        MAX_LEN = 200
+        n = len(strs)
+        lcp = ""
+        if n == 0 :
+            return lcp
+        for i in range(len(strs[0])) :
+            c = strs[0][i]
+            for j in range(1, n) :
+                if len(strs[j]) < i :
+                    return lcp
+                if strs[j][i] != c :
+                    return lcp
+            lcp = lcp + c
+        return lcp
+     
