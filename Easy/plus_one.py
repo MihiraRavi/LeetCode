@@ -72,6 +72,8 @@ class Solution:
             carry = digits[n] // 10
             digits[n] = remainder
             n -= 1
+            if carry == 0 :
+                break
         if carry != 0 :
             digits.insert(0, carry)
         return digits
