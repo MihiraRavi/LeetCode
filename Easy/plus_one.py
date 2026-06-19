@@ -55,3 +55,23 @@ class Solution:
                 digits.insert(0, 1)
                 digits[1] = 0
         return digits
+
+
+
+# Alternate Method
+
+
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        n = len(digits) - 1
+        digits[n] += 1
+        carry = 0
+        while n >= 0 :
+            digits[n] += carry
+            remainder = digits[n] % 10
+            carry = digits[n] // 10
+            digits[n] = remainder
+            n -= 1
+        if carry != 0 :
+            digits.insert(0, carry)
+        return digits
