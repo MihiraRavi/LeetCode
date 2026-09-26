@@ -1,4 +1,6 @@
+"""
 202. Happy Number
+Easy
 
 Write an algorithm to determine if a number n is happy.
 
@@ -29,6 +31,8 @@ Output: false
 Constraints:
 
 1 <= n <= 231 - 1
+"""
+
 
 class Solution:
     tracker_list = []
